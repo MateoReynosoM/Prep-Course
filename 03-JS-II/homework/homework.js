@@ -20,10 +20,10 @@ function mayoriaDeEdad(edad) {
   //Determinar si la persona según su edad puede ingresar a un evento.
   //Si tiene 18 años ó más, devolver --> "Allowed"
   //Si es menor, devolver --> "Not allowed"
-if(edad=>18){
-  print('Allowed');
+if(edad>=18){
+  return 'Allowed';
 }else{
-  print('Not allowed');
+  return 'Not allowed';
 }
 }
   
@@ -73,20 +73,15 @@ function colors(color) {
 var color;
 switch(color){
   case "blue":
-  console.log("This is blue");
- break;
+  return "This is blue";
   case "red":
-  console.log("This is red");
- break;
+  return "This is red";
   case "green":
-  console.log("This is green");
- break; 
+  return "This is green";
   case "orange":
-  console.log("This is orange");
- break;
+  return "This is orange";
   default:
-  console.log("Color not found");
- break;
+  return "Color not found";
 }
 }
 
@@ -95,14 +90,11 @@ function esDiezOCinco(numero) {
   // De lo contrario, devuelve "false"
   // Tu código:
   var numero;
-  switch(numero){
-    case "10":
-      return true;
-      case "5":
-      return true;
-      default:
-        return false;
-  }
+if(numero==10 || numero== 5){
+  return true;
+}else{
+  return false;
+}
 
 }
 
@@ -178,13 +170,15 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  for(var i=2;i<numero;i++)
-          if(numero%i==0){
-          return false;}
-          else{
-            return true;
-          }
-
+  // Test
+  if( numero < 2) return false;
+  if(numero === 2) return true;
+  for(var i = 2; i < numero; i++) {
+    if(numero % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function esVerdadero(valor){
@@ -214,7 +208,7 @@ function tablaDelSeis(){
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
-  if(numero.length==3){
+  if(numero>99 && numero<1000){
     return true;
     
   }else{
@@ -229,9 +223,10 @@ function doWhile(numero) {
   //Usar el bucle do ... while.
   var i=0
   do{
-    numero+5;
+    numero+=5;
     i++;
-  }while(i<9);
+  }while(i<8);
+  return numero;
 }
 
 
