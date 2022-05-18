@@ -63,12 +63,8 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  var b=palabras[0]+' ';
-  a=palabras.length;
-  for(i=1;i<a;i++)
-  b=b+(palabras[i] + ' ');
-  b=b-' ';
-return b;
+
+return palabras.join(' ');
 }
 
 
@@ -133,7 +129,13 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-
+  a=arguments.length;
+  if(a < 1) return 0;
+  var b = 1;
+  for(var i = 0; i < a; i++) {
+    b = b * arguments[i];
+  }
+  return b;
 }
 
 
@@ -169,16 +171,11 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  b=n+'a';
-  a=b.length-2;
-  c=n/(Math.pow(10,a));
-  d=c-9;
-  e=c-d;
-  if(e>0 && e%9==0){
-    return true;
-  }else{
-    return false;
+  let num = n.toString()
+  if(num.charAt(0) === "9"){
+    return true
   }
+  return false
 }
 
 
@@ -251,8 +248,11 @@ function breakStatement(numero) {
   a=[];
   do{
     numero+=2;
-    a.push(numero);
     i++;
+    if(numero==i)break;
+    else{
+      a.push(numero);
+    }
   }while(i<10 || numero!=i)
   if(i<9){
     return ("Se interrumpió la ejecución")
@@ -269,6 +269,16 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var a = [];
+  var b = numero;
+  for(var i= 0; i<10; i++) {
+    if(i === 5) continue;
+    else {
+      b = b + 2;
+      a.push(b);
+    }
+  }
+  return a;
 }
 
 
